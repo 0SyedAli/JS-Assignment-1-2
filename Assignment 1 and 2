@@ -1,0 +1,112 @@
+                                // Assignment 1
+class PersonAccount {
+    fName;
+    lName;
+    incomes;
+    expenses;
+
+    constructor (fName, lName, incomes, expenses){
+        this.fName = fName;
+        this.lName = lName;
+        this.incomes = incomes;
+        this.expenses = expenses;
+     }
+
+    totalIncome() {
+        let total_income = 0;
+        
+        for (let i = 1; i <= this.incomes.length; i++) {
+            let obj = this.incomes [i]
+            total_income += obj['income']
+        }
+        return total_income
+    }
+    totalExpense(){
+        let total_expense = 0;
+        for (let i = 1; i <= this.expenses.length; i++) {
+            let expenseobj = this.expenses[i];
+            total_expense += expenseobj["expense"]
+        }
+        return total_expense
+    }
+    accountBalance (){
+        return (this.totalIncome() - this.totalExpense())
+    }
+    addIncome(income_amt,income_desc){
+        this.incomes.push({income:income_amt, desc: income_desc})
+    }
+    addExpense(expense_amt,expense_desc){
+        this.expenses.push({expense:expense_amt, desc: expense_desc})
+    }
+}
+
+p = new PersonAccount ('Ahtisham', 'Ali', [{income : 10000, desc : "salary"}, {income : 300, desc : "pocket money"}], [{expense : 2200, desc : "party"},{ expense : 4000, desc : "traveling"}] )
+
+console.log(p.totalIncome() + " there is a total income !")
+console.log(p.totalExpense() + " there is a total expense !")
+console.log(p.accountBalance() + " Total account balance")
+p.addIncome(80000,"Sold Property")
+p.addExpense(25000,"Purchased Ring for Friend")
+console.log(p.totalIncome()+ " there is a total income !")
+console.log(p.totalExpense() + " there is a total expense !")
+console.log(p.accountBalance() + " Total account balance")
+
+
+                            // Assignment 2
+
+class Automobile{
+    name;
+    model;
+    color;
+    engine_type;
+    constructor(name,model,color,engine_type){
+
+        this.name =name
+        this.model= model
+        this.color = color
+        this.engine_type = engine_type
+    }
+    start(){
+        console.log(`${this.name} is ready for drive`)
+    }
+    opendoor(){
+        console.log("door is open")
+    }
+}
+
+a1 = new Automobile("A1","2002","Silver","Automatic")
+a2 = new Automobile("A2","2022","Blue","Automatic")
+a3 = new Automobile("A3","2000","White","Automatic")
+a4 = new Automobile("A4","2010","Black","Automatic")
+
+console.log(a1.model)
+console.log(a2.model)
+console.log(a3.model)
+console.log(a4.model)
+a1.start()
+
+
+class Automobile_Car extends Automobile{
+
+    maxspeed;
+    doors;
+
+    constructor(name,model,color,engine_type,maxspeed,doors)
+    {
+        super(name,model,color,engine_type)
+        this.maxspeed= maxspeed
+        this.doors = doors
+    }
+
+    on_AC(){
+        console.log("AC is on now")
+                }
+    fillTank(){
+        console.log("Tank is filling")
+    }
+}
+car1 = new Automobile_Car("car1name",'car1model','car1color',"car1engine",'200','4')
+
+class Automobile_Bus extends Automobile{}
+
+class Automobile_Truck extends Automobile{}
